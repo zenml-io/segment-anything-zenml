@@ -93,8 +93,7 @@ The pipeline generates several files for each processed image:
 
 The pipeline creates an interactive HTML visualization that can be viewed in the ZenML dashboard.
 
-
-https://user-images.githubusercontent.com/6877923/123006036-64e2e780-d3b7-11eb-922e-018994b32da5.mov
+https://github.com/user-attachments/assets/6675daf5-ef6c-4f75-85b1-949033d4d8f5
 
 ## Customizing the Pipeline
 
