@@ -12,9 +12,9 @@ The pipeline performs the following steps:
 
 ## Prerequisites
 
-- Python 3.8+
+- Python 3.9+
 - Mac M1/M2 (Apple Silicon) or system with NVIDIA GPU
-- Docker (for containerized execution)
+- Docker (optional for containerized execution)
 
 ## Installation
 
@@ -24,24 +24,31 @@ The pipeline performs the following steps:
    cd sam-zenml-pipeline
    ```
 
-2. Run the setup script to create directories, download sample images, and install dependencies:
-   ```bash
-   chmod +x setup.sh
-   ./setup.sh
-   ```
+2. Install requirements (recommended to use a virtual environment)
 
-   The setup script will:
-   - Create project directories
-   - Download sample images
-   - Download the SAM model checkpoint
-   - Set up a Python virtual environment
-   - Install dependencies
-   - Initialize ZenML
+```bash
+pip install -r requirements.txt
+```
 
-3. Activate the virtual environment:
-   ```bash
-   source venv/bin/activate
-   ```
+3. Download the SAM model checkpoint (ViT-B variant, you can use other variants as well)
+
+```bash
+wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth
+```
+
+4. Initialize ZenML
+
+```bash
+zenml init
+```
+
+5. (Optional) Login to ZenML server and set a stack (default works too)
+
+```bash
+zenml login
+# For local, you can use zenml login --local
+zenml stack set default # or a stack of your choice
+```
 
 ## Running the Pipeline
 
@@ -86,22 +93,7 @@ The pipeline generates several files for each processed image:
 
 The pipeline creates an interactive HTML visualization that can be viewed in the ZenML dashboard.
 
-1. Start the ZenML UI if not already running:
-   ```bash
-   zenml up
-   ```
-
-2. Open the dashboard (typically at http://127.0.0.1:8237)
-
-3. Navigate to:
-   - Pipelines → sam_pipeline → Latest run → Artifacts
-   - Find the HTML artifact created by the `create_interactive_html_artifact` step
-   - Click to open the interactive visualization
-
-4. Using the visualization:
-   - Select different images from the dropdown
-   - Compare original images with masks or overlays
-   - Toggle between different view types
+![Visualization of SAM fine-tuning output](assets/finetuning_sam_demo.mp4)
 
 ## Customizing the Pipeline
 
@@ -155,6 +147,10 @@ This pipeline can be extended in several ways:
 ## License
 
 Apache 2.0
+
+## Limitations
+
+This is a basic example of how to use ZenML to fine-tune SAM. It is not a production-ready solution.
 
 ## Acknowledgments
 

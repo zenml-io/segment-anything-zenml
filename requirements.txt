@@ -1,0 +1,6 @@
+zenml[server]
+segment-anything
+torch
+pillow
+numpy
+torchvision
