@@ -93,9 +93,8 @@ The pipeline generates several files for each processed image:
 
 The pipeline creates an interactive HTML visualization that can be viewed in the ZenML dashboard.
 
-<video controls>
-<source src="assets/finetuning_sam_demo.mp4" type="video/mp4">
-</video>
+
+![Visualization of SAM fine-tuning output](https://github.com/zenml-io/segment-anything-zenml/raw/refs/heads/main/assets/finetuning_sam_demo.mp4)
 
 ## Customizing the Pipeline
 
